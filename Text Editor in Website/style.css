@@ -1,0 +1,31 @@
+*{
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 10px;
+}
+iframe{
+  width: 100%;
+  height: 60vh;
+  border: solid black 2px;
+  background-color: white;
+}
+.input{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.input div{
+  width: calc(97% / 3);
+  height: 40vh;
+  margin: 5px;
+}
+textarea{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(155, 155, 155);
+  resize: none; 
+}

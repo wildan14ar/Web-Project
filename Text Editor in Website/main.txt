@@ -1,0 +1,12 @@
+<h1>dfdssdsdssdf</h1>
+<div id="out"></div>
+<button onclick="subs()">submit</button>
+
+h1{
+color:blue;
+}
+
+function subs(){
+ var out = document.getElementById('out');
+ out.innerHTML = 'sdfdsfdsf';
+}

@@ -1,0 +1,139 @@
+/* desind awal */
+.container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    width: 250px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* validation message */
+#message {
+    display:none;
+    background-color: white;
+    padding: 5px;
+    width: 200px;
+    color: #000;
+    border: solid black;
+    border-left: solid rgba(8, 151, 8, 0.815);
+    position: absolute;
+    margin-left: 260px;
+    margin-top: -45px;
+}
+
+#message ul {
+    padding-left: 45px;
+    font-size: 10px;
+    list-style-type: none;
+}
+
+#message::before {
+    background: white scroll 0 0;
+    content: "";
+    height: 25px;
+    left: -16px;
+    margin-top: -12.5px;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 25px;
+    border-bottom: solid rgba(8, 151, 8, 0.815);
+    border-left: solid rgba(8, 151, 8, 0.815);
+}
+
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}
+
+input:invalid{
+    animation: shake .3s;
+}
+
+/* animation */
+@keyframes shake {
+    25% {transform: translateX(4px);}
+    50% {transform: translateX(-4px);}
+    75% {transform: translateX(4px);}
+}
+
+/* show password */
+.switch {
+display: inline-block;
+position: absolute;
+margin-left: 150px;
+margin-top: 35px;
+background-color: #fff;
+}
+
+.form-element .password-toggle {
+display: none;
+}
+.form-element .icon-eye {
+cursor: pointer;
+}
+.form-element .password-toggle:not(:checked) + .icon-eye .fa-eye-slash {
+display: none;
+}
+.form-element .password-toggle:checked + .icon-eye .fa-eye {
+display: none;
+}
+
+.strength {
+position: relative;
+width: 250px;
+height: 20px;
+margin-top: 5px;
+margin-bottom: 20px;
+border-radius: 4px;
+background-color: #fff;
+transition: .5s;
+}
+
+.percentage {
+position: absolute;
+height: 20px;
+border-radius: 4px;
+background-color: #0f634e;
+content: '';
+opacity: 0.5;
+}
+
+.msg {
+color: #3d3935;
+margin-top: -2px;
+font-size: 1rem;
+text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+#container {
+    height: auto;
+    align-items: flex-start;
+}
+}

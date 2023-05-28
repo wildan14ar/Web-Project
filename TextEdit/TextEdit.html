@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>COLOR</title>
+    <style>
+        body{
+            margin: 0px;
+            background: linear-gradient(to bottom, black, gray);
+            height: 1000px;
+            color: white;
+        }
+
+        .containar{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .input {
+            display: flex;
+            flex-direction: column;
+            margin: 60px 40px;
+            border-radius: 25px;
+            border: 2px solid black;
+            width: 350px;
+            height: 250px;
+            padding: 20px;
+        }
+
+        #color {
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+            text-align: center;
+            color: white;
+            font: solid;
+            border-radius: 25px;
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+        }
+
+        .box ,.rate {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .rate input{
+            width: 250px;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>.....TextEdit.....</h1>
+    <div class="containar">
+        <div class="input">
+            <input type="text" id="text" style="width: 150px; height: 50px;">
+            <input type="range" id="size" value="10" max="50">
+            <div>
+                <label for=""><input type="checkbox" name="bold" onclick="blod()"><b>Bold</b></label>
+                <label for=""><input type="checkbox" name="italic"><i>Italic</i></label><br>
+                <label for=""><input type="checkbox" name="underline"><u>Underline</u></label>
+                <label for=""><input type="checkbox" name="strikeout"><s>Strikeout</s></label>
+            </div>
+        </div>
+        <div class="box">
+            <div id="color"><div id="output" style="    margin-top: 45%;"></div></div>
+            <div class="rate">
+                <p id="rgb" style="text-align: center; margin-bottom: 10px;"></p>
+                <label for="">R : <input type="range" name="r" max="225"></label>
+                <label for="">G : <input type="range" name="g" max="225"></label>
+                <label for="">B : <input type="range" name="b" max="225"></label>
+            </div>
+        </div>
+    </div>
+    <script>
+        var text = document.getElementById("text");
+        var size = document.getElementById("size");
+        output = document.getElementById("output");
+
+        text.addEventListener('input', function() {
+            texts = text.value;
+            
+            output.innerHTML = texts;
+        });
+
+        size.addEventListener('input', function() {
+            sizes = size.value;
+            output.style.fontSize = `${sizes}px`;
+        })
+        
+        const bld = document.querySelector('input[name=blod]');
+        const itlc = document.querySelector('input[name=italic]');
+        const udrln = document.querySelector('input[name=underline]');
+        const srkt = document.querySelector('input[name=strikeout]');
+
+        function blod(){
+            if (bld.checked == true){
+                output.style.textDecoration = "underline";
+            }
+        };
+
+    </script>
+    <script>
+        const red = document.querySelector('input[name=r]');  
+        const green = document.querySelector('input[name=g]');  
+        const blue = document.querySelector('input[name=b]');  
+
+        red.addEventListener('input', function() {
+            const r = red.value;
+            const g = green.value;
+            const b = blue.value;
+            const color = document.getElementById('color');
+            color.style.backgroundColor = 'rgb('+ r +','+ g +','+ b +')';
+            document.getElementById('rgb').innerHTML = 'rgb('+ r +','+ g +','+ b +')';
+        });
+
+        green.addEventListener('input', function() {
+            const r = red.value;
+            const g = green.value;
+            const b = blue.value;
+            const color = document.getElementById('color');
+            color.style.backgroundColor = 'rgb('+ r +','+ g +','+ b +')';
+            document.getElementById('rgb').innerHTML = 'rgb('+ r +','+ g +','+ b +')';
+        });
+
+        blue.addEventListener('input', function() {
+            const r = red.value;
+            const g = green.value;
+            const b = blue.value;
+            const color = document.getElementById('color');
+            color.style.backgroundColor = 'rgb('+ r +','+ g +','+ b +')';
+            document.getElementById('rgb').innerHTML = 'rgb('+ r +','+ g +','+ b +')';
+        });
+    </script>
+</body>
+</html>

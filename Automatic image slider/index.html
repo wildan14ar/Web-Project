@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mySlides"><h1>Welcome to My Website</h1></div>
+        <div class="mySlides" ><h1>Portofolio</h1></div>
+        <div class="mySlides"><h1>Youtube Channel</h1></div>
+        <div class="mySlides"><h1>Projects</h1></div>
+        <div class="mySlides"><h1>Blog</h1></div>
+        <div class="fornex">
+            <div onclick="plusDivs(-1)">Forward</div>
+            <div onclick="plusDivs(1)">Next</div>
+        </div>
+        <div class="indicator">
+            <div class="demo" onclick="currentDiv(1)"></div>
+            <div class="demo" onclick="currentDiv(2)"></div>
+            <div class="demo" onclick="currentDiv(3)"></div>
+            <div class="demo" onclick="currentDiv(4)"></div>
+            <div class="demo" onclick="currentDiv(5)"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

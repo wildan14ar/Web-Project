@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Animation snake in font</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+        body{
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            font-weight: bold;
+            background: #022b3a;
+            font: 7em 'arial';
+        }
+
+        .text-copy{
+            fill: none;
+            stroke: white;
+            stroke-dasharray:  6% 29%;
+            stroke-width: 4px;
+            stroke-dashoffset: 0%;
+            animation: ani 5s infinite linear;
+        }
+
+        .text-copy:nth-child(1){
+            stroke: white;
+            animation-delay: -1s;
+        }
+
+        .text-copy:nth-child(2){
+            stroke: red;
+            animation-delay: -2s;
+        }
+
+        .text-copy:nth-child(3){
+            stroke: black;
+            animation-delay: -3s;
+        }
+
+        .text-copy:nth-child(4){
+            stroke: red;
+            animation-delay: -4s;
+        }
+
+        .text-copy:nth-child(5){
+            stroke: white;
+            animation-delay: -5s;
+        }
+
+        @keyframes ani{
+            100%{
+                stroke-dashoffset: -35%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg viewBox="0 0 960 300">
+        <symbol id="s-text">
+            <text text-anchor="middle" x="50%" y="80%">WILDAN14AR</text>
+        </symbol>
+        <g class="g-ants">
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+        </g>
+    </svg>
+</body>
+</html>

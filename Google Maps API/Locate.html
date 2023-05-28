@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Locate the User's Position with Google API</title>
+	<!--
+		https://www.w3schools.com/html/html5_geolocation.asp
+		https://www.w3schools.com/graphics/google_maps_intro.asp
+		https://www.petanikode.com/google-map-marker/
+        versi berbayar(?key=keyMap) = https://developers.google.com/maps/documentation/javascript/get-api-key
+    -->
+	<script src="https://maps.googleapis.com/maps/api/js?"></script>
+	<script>
+		function initialize() {
+			navigator.geolocation.getCurrentPosition(
+				function (position) {
+					// Ambil koordinat latitude dan longitude
+					var latitude = position.coords.latitude;
+					var longitude = position.coords.longitude;
+
+					// Gunakan koordinat untuk menampilkan peta atau melakukan tugas lainnya
+					var propertiPeta = {
+						center: new google.maps.LatLng(latitude, longitude),
+						zoom: 15,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+
+					var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
+
+					// membuat Marker
+					var marker = new google.maps.Marker({
+						position: new google.maps.LatLng(latitude, longitude),
+						map: peta,
+						animation:google.maps.Animation.BOUNCE
+					});
+				},
+				function (error) {
+					document.getElementById("googleMap").innerHTML =  "Akses lokasi gagal";
+				}
+			);
+		}
+		// event jendela di-load  
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+
+</head>
+<body>
+	<div id="googleMap" style="width:80vw;height:80vh; margin: 10vh auto;"></div>
+</body>
+</html>

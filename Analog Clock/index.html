@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Analog clock</title>
+    <style>
+        html {
+            background: #10143a;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        .clock {
+            width: 36rem;
+            height: 36rem;
+            position: relative;
+            border-radius: 50%;
+            margin: 50px auto;
+            border: 12px solid #282828;
+        }
+
+        .outer {
+            position: relative;
+            background: #282828;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+        }
+
+        .outer::after {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            transform: rotate(90deg)
+        }
+
+        .outer::after,
+        .outer::before,
+        .outer .mark {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            background: #0084ff;
+            z-index: 0;
+            left: 49%;
+        }
+
+        .outer .mark {
+            background: #FFFFFF;
+            width: 3px;
+        }
+
+        .outer .mark.mark-one {
+            -webkit-transform: rotate(30deg);
+            -moz-transform: rotate(30deg);
+            transform: rotate(30deg)
+        }
+
+        .outer .mark.mark-two {
+            -webkit-transform: rotate(60deg);
+            -moz-transform: rotate(60deg);
+            transform: rotate(60deg)
+        }
+
+        .outer .mark.mark-three {
+            -webkit-transform: rotate(120deg);
+            -moz-transform: rotate(120deg);
+            transform: rotate(120deg)
+        }
+
+        .outer .mark.mark-four {
+            -webkit-transform: rotate(150deg);
+            -moz-transform: rotate(150deg);
+            transform: rotate(150deg)
+        }
+
+        .inner {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background: #282828;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            border-radius: 100%;
+            z-index: 1;
+        }
+
+        .inner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            border-radius: 18px;
+            margin-left: -8px;
+            margin-top: -6px;
+            background: #575757;
+            z-index: 11;
+        }
+
+        .hand {
+            width: 50%;
+            right: 50%;
+            height: 6px;
+            background: #245ff8;
+            position: absolute;
+            top: 50%;
+            border-radius: 6px;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+
+        .hand.hour-hand {
+            width: 30%;
+            z-index: 3;
+        }
+
+        .hand.min-hand {
+            height: 3px;
+            z-index: 10;
+            width: 40%;
+        }
+
+        .hand.second-hand {
+            background: #003bd4;
+            width: 45%;
+            height: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="outer">
+            <div class="mark mark-one"></div>
+            <div class="mark mark-two"></div>
+            <div class="mark mark-three"></div>
+            <div class="mark mark-four"></div>
+            <div class="inner">
+                <div class="hand hour-hand"></div>
+                <div class="hand min-hand"></div>
+                <div class="hand second-hand"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const second = document.querySelector('.second-hand')
+        const minutes = document.querySelector('.min-hand')
+        const hours = document.querySelector('.hour-hand')
+
+        function setDate() {
+            const now = new Date()
+
+            const seconds = now.getSeconds()
+            const secondsDegrees = ((seconds / 60) * 360) + 90
+            second.style.transform = `rotate(${secondsDegrees}deg)`
+
+            const mins = now.getMinutes()
+            const minsDegrees = ((mins / 60) * 360) + ((seconds / 60) * 6) + 90
+            minutes.style.transform = `rotate(${minsDegrees}deg)`
+
+            const hour = now.getHours()
+            const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90
+            hours.style.transform = `rotate(${hourDegrees}deg)`
+        }
+
+        setInterval(setDate, 1000)
+
+        setDate()
+    </script>
+</body>
+</html>

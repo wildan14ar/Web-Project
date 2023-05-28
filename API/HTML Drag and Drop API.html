@@ -1,0 +1,72 @@
+<!--
+    https://www.w3schools.com/html/html5_draganddrop.asp
+    https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
+
+    Pengguna dapat memilih elemen yang dapat diseret dengan mouse, menyeret elemen tersebut ke elemen yang dapat dilepas , dan melepaskannya dengan melepaskan tombol mouse. Representasi transparan dari elemen yang dapat diseret mengikuti penunjuk selama operasi seret.
+    
+    Drag-and-drop HTML menggunakan DOM event modeldan drag eventsdiwarisi dari mouse events. Operasi seret tipikal dimulai saat pengguna memilih elemen yang dapat diseret , berlanjut saat pengguna menyeret elemen ke elemen yang dapat dilepas , lalu berakhir saat pengguna melepaskan elemen yang diseret.
+
+    Selama operasi seret, beberapa jenis peristiwa dipicu, dan beberapa peristiwa mungkin dipicu berkali-kali, seperti dan dragperistiwa dragover.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Drag and Drop API</title>
+    <style>
+        .drop {
+            width: 100%;
+        }
+
+        .drop div {
+            border: 2px solid black;
+            min-width: 250px;
+            min-height: 250px;
+            margin: 5px;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: blue;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and Drop Example</h1>
+    <p>Drag the box and drop it here:</p>
+    <div id="box" draggable="true" ondragstart="drag(event)">Drag Me</div>
+    <h1 id="box" draggable="true" ondragstart="drag(event)">ss</h1>
+    <div class="drop">
+        <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)">Drop Here</div>
+        <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)">Drop Here</div>
+        <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)">Drop Here</div>
+        <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)">Drop Here</div>
+        <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)">Drop Here</div>
+        <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)">Drop Here</div>
+    </div>
+    <script>
+        function drag(event) {
+            // Menambahkan ID elemen yang sedang di drag ke data transfer
+            event.dataTransfer.setData("text/plain", event.target.id);
+            // Menambahkan efek visual saat menarik elemen
+        }
+
+        function allowDrop(event) {
+            // Mencegah tindakan default drop
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            // Mendapatkan ID elemen yang sedang di drag
+            var data = event.dataTransfer.getData("text/plain");
+            // Menambahkan elemen ke tempat drop
+            event.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+
+</html>

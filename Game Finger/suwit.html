@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Finger Game</title>
+    <link rel="stylesheet" href="suwit.css">
+    <style>
+        #mulai{
+            position: absolute;
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.9;
+        }
+        
+        .pilihan{
+            margin: 50px 40%;
+        }
+    </style>
+</head>
+<body>
+    <!--<div id="mulai">
+        <h1>game finger</h1>
+        <div class="pilihan">
+            <button onclick="suwit()">suwit jawa</button>
+            <button onclick="bgk()">Rock paper scissor</button>
+        </div>
+    </div>-->
+    <div style="margin: 10px auto; text-align: center;">
+        <label for="">Player <span></span></label>
+        <label for="">Computer <span></span></label>
+    </div>
+    <div class="container">
+        <h1 id="title">game finger</h1>
+        <div class="area-komputer">
+            <img src="pc.png" class="pc">
+        </div>
+        <div class="info"></div>
+        <div class="area-player">
+            <ul>
+                <li>
+                    <img src="g" class="gajah">
+                </li>
+                <li>
+                    <img src="o" class="orang">
+                </li>
+                <li>
+                    <img src="s" class="semut">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script id="sintax" src="suwit.js"></script>
+    <script>bgk();</script>
+</body>
+</html>

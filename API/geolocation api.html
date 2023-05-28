@@ -1,0 +1,46 @@
+<!--
+    API Geolokasi memungkinkan pengguna untuk memberikan lokasi mereka ke aplikasi web jika mereka menginginkannya. Untuk alasan privasi, pengguna dimintai izin untuk melaporkan informasi lokasi. Sistem operasi pengguna akan meminta pengguna untuk mengizinkan akses lokasi saat pertama kali diminta.
+
+    Anda sering ingin mengambil informasi lokasi pengguna di aplikasi web Anda, misalnya untuk memplot lokasi mereka di peta, atau menampilkan informasi hasil personalisasi yang relevan dengan lokasi mereka.
+
+    API Geolokasi akan diakses melalui panggilan ke navigator.geolocation; dan menyebabkan browser user meminta izin untuk mengakses data lokasi user. Jika mereka menerimanya, browser akan menggunakan fungsionalitas terbaik yang tersedia di perangkat untuk mengakses informasi ini (misalnya, GPS).
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+    https://www.w3schools.com/html/html5_geolocation.asp
+
+    Geolocation.getCurrentPosition(): Mengambil lokasi perangkat user saat ini.
+    
+    API buat akses lokasi user, API Geolocation. digunakan untuk memberikan lokasi user
+    buat percabangan if else untuk memberi tahu layanan geolokasi tersedia di perangkat user.
+    Geolocation.getCurrentPosition() untuk Mengambil lokasi perangkat user saat ini dan menjalankan function show location untuk mengambil nilai dari garil lintang dan garis bukur.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Geolocation API</title>
+</head>
+<body>
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+</html>

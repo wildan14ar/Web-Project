@@ -1,0 +1,56 @@
+/* Styling untuk slideshow */
+*{
+    margin: 0px;
+}
+.container{
+    background-color: rgb(62, 12, 109);
+    width: 100%;
+    height: 95vh;
+}
+
+.mySlides{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 200px;
+}
+
+h1{
+    border: solid white;
+    margin: 0px 300px;
+    padding: 20px;
+    color: white;
+}
+
+.fornex{
+    width: 100%;
+    position: absolute;
+    margin-top: -550px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.7;
+}
+
+.fornex div{
+    font-size: 20px;
+    margin: 0px 3%;
+}
+
+/* Styling untuk indikator */
+.indicator {
+    text-align: center;
+    width: 100%;
+    margin-top: -230px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.demo {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 0 5px;
+    background-color: #bbb;
+}

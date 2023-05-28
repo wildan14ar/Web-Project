@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background-color: rgb(6, 6, 36);
+        }
+        .clock {
+            text-align: center;
+            color: rgb(122, 255, 255);
+            padding: 20px;
+            border: 5px solid gray;
+            border-radius: 10px;
+            max-width: 400px;
+            background-color: rgb(32, 32, 32);
+            margin: 50px auto;
+        }
+        .date {
+            font-size: 24px;
+        }
+        .time {
+            font-size: 50px;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .timezone {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="date" id="date"></div>
+        <div class="time" id="time"></div>
+        <div class="timezone" id="timezone"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var session = "AM";
+            if (hours == 0) {
+                hours = 12;
+            }
+
+            if (hours > 12) {
+                hours = hours - 12;
+                session = "PM";
+            }
+
+            const timeString = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds) + " " + session;
+            document.getElementById("time").textContent = timeString;
+
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const day = days[now.getDay()];
+            const date = now.getDate();
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const dateString = day + ", " + month + " " + date + ", " + year;
+            document.getElementById("date").textContent = dateString;
+
+            const timezone = now.toLocaleTimeString('en-us', { timeZoneName: 'short' }).split(' ')[2];
+            document.getElementById("timezone").textContent = "Timezone: " + timezone;
+        }
+
+        function formatTime(time) {
+            return time < 10 ? "0" + time : time;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>

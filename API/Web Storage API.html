@@ -1,0 +1,35 @@
+<!--
+    https://www.w3schools.com/html/html5_webstorage.asp
+    https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
+
+    Dengan penyimpanan web, aplikasi web dapat menyimpan data secara lokal di dalam browser pengguna.
+
+    Sebelum HTML5, data aplikasi harus disimpan dalam cookie, termasuk dalam setiap permintaan server. Penyimpanan web lebih aman, dan sejumlah besar data dapat disimpan secara lokal, tanpa mempengaruhi kinerja situs web.
+
+    Tidak seperti cookie, batas penyimpanannya jauh lebih besar (setidaknya 5MB) dan informasi tidak pernah ditransfer ke server.
+
+    Penyimpanan web adalah per asal (per domain dan protokol). Semua halaman, dari satu sumber, dapat menyimpan dan mengakses data yang sama.
+
+    window.localStorage- menyimpan data tanpa tanggal kedaluwarsa
+    window.sessionStorage- menyimpan data untuk satu sesi (data hilang saat tab browser ditutup)
+-->
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="result"></div>
+    <div id="result2"></div>
+    <script>
+        // Check browser support
+        if (typeof (Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("lastname", "wildan");
+            sessionStorage.setItem("lastname2", "wildan2");
+            // Retrieve
+            document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+            document.getElementById("result2").innerHTML = sessionStorage.getItem("lastname2");
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+    </script>
+</body>
+</html>
